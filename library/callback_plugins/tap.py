@@ -94,7 +94,7 @@ class CallbackModule(CallbackBase):
         Render a skipped test.
         """
         description = cls._describe(result)
-        directive = '# SKIP {}'.format(result._result['skip_reason'])
+        directive = '# SKIP {}'.format(result._result.get('skip_reason', ''))
         return cls._tap(cls.OK, description, directive=directive)
 
     @classmethod
